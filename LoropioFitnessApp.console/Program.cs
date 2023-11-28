@@ -1,2 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, Chapter 2!");
+
+Console.WriteLine("What is your name? ");
+string name = Console.ReadLine();
+
+Console.WriteLine("Hello " + name + ", Welcome to Loropio Fitness App");
