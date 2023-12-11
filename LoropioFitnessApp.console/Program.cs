@@ -1,42 +1,42 @@
-﻿using System;
+﻿       Console.WriteLine("Activity Tracker Application");
+        Console.WriteLine();
 
-class Program
-{
-    static void Main()
-    {
-        Console.WriteLine("Enter Activity Details:");
-
-        Console.Write("Activity Name: ");
+        Console.Write("Enter activity name: ");
         string activityName = Console.ReadLine();
 
-        Console.Write("Distance Covered (in meters): ");
-        double distanceInMeters = double.Parse(Console.ReadLine());
+        Console.Write("Enter distance covered (in meters): ");
+        double distanceInMeters;
+        while (!double.TryParse(Console.ReadLine(), out distanceInMeters) || distanceInMeters < 0)
+        {
+            Console.WriteLine("Invalid input. Please enter a non-negative number.");
+        }
 
-        Console.Write("Time Taken (in minutes): ");
-        double timeInMinutes = double.Parse(Console.ReadLine());
+        Console.Write("Enter time taken (in hours): ");
+        double timeTakenInHours;
+        while (!double.TryParse(Console.ReadLine(), out timeTakenInHours) || timeTakenInHours < 0)
+        {
+            Console.WriteLine("Invalid input. Please enter a non-negative number.");
+        }
 
-        Console.Write("Date of Activity (YYYY-MM-DD): ");
-        string dateOfActivity = Console.ReadLine();
+        Console.Write("Enter date of the activity (YYYY-MM-DD): ");
+        DateTime dateOfActivity;
+        while (!DateTime.TryParse(Console.ReadLine(), out dateOfActivity))
+        {
+            Console.WriteLine("Invalid date format. Please enter the date in YYYY-MM-DD format.");
+        }
 
-        double distanceInKilometers = ConvertMetersToKilometers(distanceInMeters);
-
-        double averageSpeedInKilometersPerMinute = CalculateAverageSpeedInKilometersPerMinute(distanceInKilometers, timeInMinutes);
+        double averageSpeed = CalculateAverageSpeed(distanceInMeters, timeTakenInHours);
 
         Console.WriteLine("\nActivity Details");
         Console.WriteLine($"Activity Name: {activityName}");
-        Console.WriteLine($"Distance Covered: {distanceInKilometers} kilometers");
-        Console.WriteLine($"Time Taken: {timeInMinutes} minutes");
-        Console.WriteLine($"Date of Activity: {dateOfActivity}");
-        Console.WriteLine($"Average Speed: {averageSpeed} kilometers per minute");
+        Console.WriteLine($"Distance Covered: {distanceInMeters} meters");
+        Console.WriteLine($"Time Taken: {timeTakenInHours} hours");
+        Console.WriteLine($"Date of Activity: {dateOfActivity.ToString("yyyy-MM-dd")}");
+        Console.WriteLine($"Average Speed: {averageSpeed} meters per hour");
+    
+
+    static double CalculateAverageSpeed(double distance, double time)
+    {
+        return time != 0 ? distance / time : 0;
     }
 
-    static double ConvertMetersToKilometers(double meters)
-    {
-        return meters / 1000.0;
-    }
-
-    static double CalculateAverageSpeedInKilometersPerMinute(double distanceInKilometers, double timeInMinutes)
-    {
-        return distanceInKilometers / timeInMinutes;
-    }
-}
