@@ -1,5 +1,4 @@
-﻿
-        Console.WriteLine("Activity Tracker Application");
+﻿        Console.WriteLine("Activity Tracker Application");
         Console.WriteLine();
 
         Console.Write("Enter activity name: ");
