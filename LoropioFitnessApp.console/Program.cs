@@ -1,4 +1,4 @@
-﻿        Console.WriteLine("Activity Tracker Application");
+﻿ // See https://aka.ms/new-console-template for more informationConsole.WriteLine("Activity Tracker Application");
         Console.WriteLine();
 
         Console.Write("Enter activity name: ");
