@@ -1,4 +1,7 @@
-﻿ // See https://aka.ms/new-console-template for more informationConsole.WriteLine("Activity Tracker Application");
+﻿// See https://aka.ms/new-console-template for more informationConsole.WriteLine("Activity Tracker Application");
+Console.WriteLine("Input your Name: ");
+string userName = Console.ReadLine();
+
         Console.WriteLine();
 
         Console.Write("Enter activity name: ");
